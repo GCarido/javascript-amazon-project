@@ -1,9 +1,9 @@
 let displayHTML = '';
 
 products.forEach((product, index) => {
-    product = products[index];
-    const { image, name, rating: { stars, count }, priceCents } = product;
-    displayHTML += `
+  product = products[index];
+  const { id, image, name, rating: { stars, count }, priceCents } = product;
+  displayHTML += `
           <div class="product-container">
           <div class="product-image-container">
             <img class="product-image"
@@ -48,7 +48,8 @@ products.forEach((product, index) => {
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">
+          <button class="add-to-cart-button button-primary js-add-to-cart"
+          data-product-id="${id}">
             Add to Cart
           </button>
         </div>
@@ -58,3 +59,74 @@ products.forEach((product, index) => {
 const renderItem = document.querySelector('.js-products-grid');
 
 renderItem.innerHTML = displayHTML;
+
+
+document.querySelectorAll('.js-add-to-cart').forEach((button) => {
+  button.addEventListener('click', () => {
+    const productId = button.dataset.productId;
+
+    let matchingItem;
+
+    cart.forEach((item) => {
+      if(productId === item.productId){
+        matchingItem = item;
+      }
+    });
+
+    if(matchingItem){
+      matchingItem.quantity++;
+    } else {
+      cart.push({
+        productId,
+        quantity: 1
+      });
+    }
+    console.log(cart);
+  });
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// document.querySelectorAll('.js-add-to-cart')
+//   .forEach((button) => {
+//     button.addEventListener('click', () => {
+//       const productId = button.dataset.productId;
+
+//       let matchingItem;
+
+//       cart.forEach((item) => {
+//         if (productId === item.productId) {
+//           matchingItem = item;
+//         }
+//       });
+
+//       if (matchingItem) {
+//         matchingItem.quantity++;
+//       } else {
+//         cart.push({
+//           productId,
+//           quantity: 1
+//         });
+//       }
+//       console.log(cart);
+//     })
+//   });
