@@ -74,7 +74,6 @@ function updateCartQuantity() {
   const cartHTML = document.querySelector('.js-cart-quantity');
 
   cartHTML.innerHTML = cartQuantity;
-
 }
 
 document.querySelectorAll('.js-add-to-cart').forEach(button => {
