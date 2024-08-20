@@ -10,13 +10,15 @@ export const cart = [
 ];
 
 export function addToCart(productId) {
-    let matchingItem;
 
-    cart.forEach((cartItem) => {
-        if (productId === cartItem.productId) {
-            matchingItem = cartItem;
-        }
-    });
+    //let matchingItem;
+    // cart.forEach((cartItem) => {    //NORMALIZING SAMPLE 1
+    //     if (productId === cartItem.productId) {
+    //         matchingItem = cartItem;
+    //     }
+    // });
+
+    let matchingItem = cart.find(cartItem => cartItem.productId === productId); //NORMALIZING SAMPLE 2 DESTRUCTURING METHOD
 
     if (matchingItem) {
         matchingItem.quantity++;

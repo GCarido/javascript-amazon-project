@@ -1,5 +1,6 @@
 import { cart } from '../data/cart.js';
-import { products } from '../data/products.js'
+import { products } from '../data/products.js';
+import { formatCurrency } from './utils/money.js';
 
 let displayHTML = '';
 
@@ -18,7 +19,7 @@ cart.forEach((cartItem, index) => {
 
     let matchingProduct = products.find(product => product.id === productId); //NORMALIZING SAMPLE 2 DESTRUCTURING METHOD
 
-    const { image, name, priceCents } = matchingProduct;
+    const { id, image, name, priceCents } = matchingProduct;
 
     if (matchingProduct) {
         displayHTML += `
@@ -36,7 +37,7 @@ cart.forEach((cartItem, index) => {
                 ${name}
                 </div>
                 <div class="product-price">
-                ${(priceCents / 100).toFixed(2)}
+                $${formatCurrency(priceCents)}
                 </div>
                 <div class="product-quantity">
                 <span>
@@ -58,7 +59,7 @@ cart.forEach((cartItem, index) => {
                 <div class="delivery-option">
                 <input type="radio" checked
                     class="delivery-option-input"
-                    name="delivery-option-1">
+                    name="delivery-option-${id}">
                 <div>
                     <div class="delivery-option-date">
                     Tuesday, June 21
@@ -71,7 +72,7 @@ cart.forEach((cartItem, index) => {
                 <div class="delivery-option">
                 <input type="radio"
                     class="delivery-option-input"
-                    name="delivery-option-1">
+                    name="delivery-option-${id}">
                 <div>
                     <div class="delivery-option-date">
                     Wednesday, June 15
@@ -84,7 +85,7 @@ cart.forEach((cartItem, index) => {
                 <div class="delivery-option">
                 <input type="radio"
                     class="delivery-option-input"
-                    name="delivery-option-1">
+                    name="delivery-option-${id}">
                 <div>
                     <div class="delivery-option-date">
                     Monday, June 13
