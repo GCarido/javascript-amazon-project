@@ -1,3 +1,10 @@
+export function getProduct(productId){
+  let matchingProduct = products.find(product => product.id === productId);
+
+  return matchingProduct; //NORMALIZING SAMPLE 2 DESTRUCTURING METHOD
+}
+
+
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
