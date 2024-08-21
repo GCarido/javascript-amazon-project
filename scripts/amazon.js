@@ -45,6 +45,8 @@ products.forEach((product, index) => {
             </select>
           </div>
 
+          ${product.extraInfoHTML()} //POLYMORPHISM
+
           <div class="product-spacer"></div>
 
           <div class="added-to-cart">
