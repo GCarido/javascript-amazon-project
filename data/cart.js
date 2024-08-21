@@ -1,5 +1,3 @@
-
-
 export let cart;
 
 loadFromStorage();
