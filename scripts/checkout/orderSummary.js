@@ -46,7 +46,9 @@ export function renderOrderSummary() {
 
         if (matchingProduct) {
             displayHTML += `
-            <div class="cart-item-container js-cart-item-container-${id}">
+            <div class="cart-item-container 
+            js-cart-item-container
+            js-cart-item-container-${id}">
             <div class="delivery-date">
             Delivery date: ${dateString}
             </div>
@@ -62,7 +64,8 @@ export function renderOrderSummary() {
                 <div class="product-price">
                 $${formatCurrency(priceCents)}
                 </div>
-                <div class="product-quantity">
+                <div class="product-quantity
+                    js-product-quantity-test-suite-${id}">
                 <span>
                     Quantity: <span class="quantity-label js-quantity-label-${id}">${quantity}</span>
                 </span>
@@ -74,7 +77,8 @@ export function renderOrderSummary() {
                 data-product-id="${id}">
                     Save
                 </span>
-                <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${id}">
+                <span class="delete-quantity-link link-primary js-delete-link" 
+                js-delete-link-test-suite-${id} data-product-id="${id}">
                     Delete
                 </span>
                 </div>
@@ -145,7 +149,11 @@ export function renderOrderSummary() {
 
         const cartString = `${cartQuantity} item${cartQuantity === 1 ? '' : 's'}`;
 
-        linkCart.innerHTML = cartString;
+        if (linkCart) {
+            linkCart.innerHTML = cartString;
+        } else {
+            console.error('linkCart element not found');
+        }
 
     }
 
