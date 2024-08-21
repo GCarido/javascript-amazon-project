@@ -1,14 +1,14 @@
 class Cart {    //Pascal Case that generate objects
     cartItems;
-    localStorageKey;
+    #localStorageKey; //private field
 
     constructor(localStorageKey) {
-        this.localStorageKey = localStorageKey;
-        this.loadFromStorage();
+        this.#localStorageKey = localStorageKey;
+        this.#loadFromStorage();
     }
 
-    loadFromStorage() {
-        const getItem = JSON.parse(localStorage.getItem(this.localStorageKey));
+    #loadFromStorage() {
+        const getItem = JSON.parse(localStorage.getItem(this.#localStorageKey));
         this.cartItems = getItem || [
             {
                 productId: 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
@@ -24,7 +24,7 @@ class Cart {    //Pascal Case that generate objects
     }
 
     saveToStorage() {
-        localStorage.setItem(this.localStorageKey, JSON.stringify(this.cartItems));
+        localStorage.setItem(this.#localStorageKey, JSON.stringify(this.cartItems));
     }
 
     addToCart(productId) {
@@ -78,6 +78,9 @@ class Cart {    //Pascal Case that generate objects
 
 const cart = new Cart('cart-oop');    // const cart is an instance of a class
 const businessCart = new Cart('business-cart');
+
+// cart.#localStorageKey = 'cart-businessss'; //error
+
 
 
 console.log(cart);
