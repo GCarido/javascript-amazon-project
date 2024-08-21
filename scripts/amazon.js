@@ -45,7 +45,7 @@ products.forEach((product, index) => {
             </select>
           </div>
 
-          ${product.extraInfoHTML()} //POLYMORPHISM
+          ${product.extraInfoHTML()}
 
           <div class="product-spacer"></div>
 
