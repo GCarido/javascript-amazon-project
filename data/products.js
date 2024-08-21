@@ -51,33 +51,40 @@ class Clothing extends Product {
 
 }
 
-// const tshirt = new Clothing(  {
-//   id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
-//   image: "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
-//   name: "Adults Plain Cotton T-Shirt - 2 Pack",
-//   rating: {
-//     stars: 4.5,
-//     count: 56
-//   },
-//   priceCents: 799,
-//   keywords: [
-//     "tshirts",
-//     "apparel",
-//     "mens"
-//   ],
-//   type: "clothing",
-//   sizeChartLink: "images/clothing-size-chart.png"
-// });
 
-// console.log(tshirt);
-// console.log(tshirt.getPrice());
+// const date = new Date()
 
-// // product1.id = "";    //NOT A GOOD WAY TO INITIALIZE OBJECTS
-// // product1.image = "";
-// // product1.name = "";
+// console.log(date);
+// console.log(date.toLocaleTimeString());
 
-// // console.log(product1);
 
+// console.log(this);
+
+// const object2 = {
+//   a: 2,
+//   b: this.a // this will be undefined
+// }
+
+/*
+
+function logThis() {
+  console.log(this); 
+}
+
+logThis(); // will not work
+
+logThis.call({a: 1}); // new method
+
+this
+const object3 = {
+  method: () => {
+    console.log(this); //same value outside the arrow function
+  }
+};
+
+object3.method(); //results in undefined
+
+*/
 
 export const products = [
   {
@@ -746,3 +753,31 @@ export const products = [
 });
 
 // console.log(products);
+
+//TESTS
+// const tshirt = new Clothing(  {
+//   id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
+//   image: "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
+//   name: "Adults Plain Cotton T-Shirt - 2 Pack",
+//   rating: {
+//     stars: 4.5,
+//     count: 56
+//   },
+//   priceCents: 799,
+//   keywords: [
+//     "tshirts",
+//     "apparel",
+//     "mens"
+//   ],
+//   type: "clothing",
+//   sizeChartLink: "images/clothing-size-chart.png"
+// });
+
+// console.log(tshirt);
+// console.log(tshirt.getPrice());
+
+// // product1.id = "";    //NOT A GOOD WAY TO INITIALIZE OBJECTS
+// // product1.image = "";
+// // product1.name = "";
+
+// // console.log(product1);
