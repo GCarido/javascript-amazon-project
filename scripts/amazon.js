@@ -20,18 +20,18 @@ products.forEach((product, index) => {
 
           <div class="product-rating-container">
             <img class="product-rating-stars"
-              src="images/ratings/rating-${stars * 10}.png">
+              src="${product.getStarsUrl()}">
             <div class="product-rating-count link-primary">
             ${count.toLocaleString()}
             </div>
           </div>
 
           <div class="product-price">
-            $${formatCurrency(priceCents)}
+            $${product.getPrice()}
           </div>
 
           <div class="product-quantity-container">
-            <select>
+            <select class="quantity-select">
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -80,7 +80,9 @@ function updateCartQuantity(){
 document.querySelectorAll('.js-add-to-cart').forEach(link => {
   link.addEventListener('click', () => {
     const productId = link.dataset.productId;
-    addToCart(productId);
+    const quantity = parseInt(link.parentElement.querySelector('.quantity-select').value);
+    addToCart(productId, quantity);
+
     updateCartQuantity();
   });
 });

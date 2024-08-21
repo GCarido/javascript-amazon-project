@@ -22,12 +22,12 @@ function saveToStorage() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-export function addToCart(productId){
+export function addToCart(productId, quantity){
     
     let matchingItem = cart.find(cartItem => cartItem.productId === productId);
 
     if(matchingItem){
-        matchingItem.quantity++; 
+        matchingItem.quantity += quantity; 
     } else {
         cart.push({
             productId,

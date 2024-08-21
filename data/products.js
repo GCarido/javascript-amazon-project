@@ -1,8 +1,40 @@
+import formatCurrency from "../scripts/utils/money.js";
+
 export function getProduct(productId){
   let matchingProduct = products.find(product => product.id === productId);
 
   return matchingProduct; //NORMALIZING SAMPLE 2 DESTRUCTURING METHOD
 }
+
+class Product {
+  id;
+  image;
+  name;
+  rating;
+  priceCents;
+
+  constructor(productDetails) {
+    this.id = productDetails.id;
+    this.image = productDetails.image;
+    this.name = productDetails.name;
+    this.rating = productDetails.rating;
+    this.priceCents = productDetails.priceCents;
+  }
+
+  getStarsUrl() {
+    return `images/ratings/rating-${this.rating.stars * 10}.png`;
+  }
+
+  getPrice() {
+    return `${formatCurrency(this.priceCents)}`;
+  }
+}
+
+// product1.id = "";    //NOT A GOOD WAY TO INITIALIZE OBJECTS
+// product1.image = "";
+// product1.name = "";
+
+// console.log(product1);
 
 
 export const products = [
@@ -664,4 +696,8 @@ export const products = [
       "mens"
     ]
   }
-];
+].map((productDetails) => {
+  return new Product(productDetails);
+});
+
+// console.log(products);
