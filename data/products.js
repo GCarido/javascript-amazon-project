@@ -88,6 +88,32 @@ object3.method(); //results in undefined
 
 export let products = [];
 
+export function loadProductsFetch() {  //FETCH IS A BETTER WAY TO USE HTTP REQUEST
+  //BY DEFAULT, IT HAS 'GET' request and uses a PROMISE
+  const promise = fetch('https://supersimplebackend.dev/products')
+  .then((response) => {
+    //Returns a promise which is response.json()
+    return response.json() 
+  }).then((productsData) => {
+    products = productsData.map((productDetails) => {
+      if(productDetails.type === 'clothing'){
+        return new Clothing(productDetails);
+      }
+      return new Product(productDetails);
+    });
+    console.log('load products');
+  }); 
+
+  return promise; // to keep attaching more steps on a promise, return a promise from a function
+}
+
+
+// loadProductsFetch().then(() => { //like this
+//   console.log('next step');
+// });
+
+
+//IT IS BETTER TO USE FETCH THAN USING XMLHttpRequest()
 export function loadProducts(fun) {
   const xhr = new XMLHttpRequest();
 
@@ -105,6 +131,8 @@ export function loadProducts(fun) {
   xhr.open('GET', 'https://supersimplebackend.dev/products');
   xhr.send();
 }
+
+
 
 
 
