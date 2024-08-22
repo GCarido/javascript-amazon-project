@@ -88,7 +88,7 @@ object3.method(); //results in undefined
 
 export let products = [];
 
-export function loadProductsFetch() {  //FETCH IS A BETTER WAY TO USE HTTP REQUEST
+export function loadProductsFetch(renderProductsGrid) {  //FETCH IS A BETTER WAY TO USE HTTP REQUEST
   //BY DEFAULT, IT HAS 'GET' request and uses a PROMISE
   const promise = fetch('https://supersimplebackend.dev/products')
   .then((response) => {
@@ -101,6 +101,7 @@ export function loadProductsFetch() {  //FETCH IS A BETTER WAY TO USE HTTP REQUE
       }
       return new Product(productDetails);
     });
+    renderProductsGrid(products);
   }).catch((error) => { // An error catch method
     console.log('Unexpected Error in Promise. Please try again later.');
   }); 
