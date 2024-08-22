@@ -1,21 +1,29 @@
 import { renderOrderSummary } from './checkout/orderSummary.js';
 import { renderPaymentSummary } from './checkout/paymentSummary.js';
 import { loadProductsFetch } from '../data/products.js';
-import { loadCart } from '../data/cart.js';
+import { cart, loadCart } from '../data/cart.js';
 // import '../data/cart-oop.js';
 // import '../data/cart-class.js';
 // import '../data/backend-practice.js';
 
 
 async function loadPage() { //async makes a function return a promise
-    
-    await loadProductsFetch(); //write asynchronous code like normal code
+    try {    //USE try-catch block
+        
+        //throw 'error1';
+        await loadProductsFetch(); //write asynchronous code like normal code
 
-    await new Promise((resolve) => {
-        loadCart(() => {
-            resolve(); 
+        await new Promise((resolve, reject) => {  //REJECT IS A FUNCTION THAT ALLOWS CREATION OF ERROR IN THE FUTURE
+            // throw 'error2'; // Creating an error inside Promise
+            loadCart(() => {
+                // reject('error3');
+                resolve();
+            });
         });
-    });
+    } catch (error) {
+        console.log('Unexpected Error in Async/Await. Please try again later.');
+    }
+
 
     /*
         SAVE VALUE IN RESOLVE USING NORMAL ASSIGNMENT OF VARIABLES
@@ -31,6 +39,10 @@ async function loadPage() { //async makes a function return a promise
 }
 
 loadPage();
+
+/* THROW AN ERROR SYNCHRONOUSLY - use throw
+    THROW AN ERROR ASYNC/AWAIT - use reject
+*/
 
 //Use promise.all to run promises at the same time
 

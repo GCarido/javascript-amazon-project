@@ -101,7 +101,8 @@ export function loadProductsFetch() {  //FETCH IS A BETTER WAY TO USE HTTP REQUE
       }
       return new Product(productDetails);
     });
-    console.log('load products');
+  }).catch((error) => { // An error catch method
+    console.log('Unexpected Error in Promise. Please try again later.');
   }); 
 
   return promise; // to keep attaching more steps on a promise, return a promise from a function
@@ -128,10 +129,14 @@ export function loadProducts(fun) {
       fun();
   });
 
+  xhr.addEventListener('error', (error) => { //ERROR HANDLING
+    console.log('Unexpected Error. Please try again later.');
+  });
+
   xhr.open('GET', 'https://supersimplebackend.dev/products');
   xhr.send();
 }
-
+// loadProducts();
 
 
 
