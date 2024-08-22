@@ -146,11 +146,11 @@ export function renderOrderSummary() {
         });
 
         const linkCart = document.querySelector('.js-quantity-link');
-
         const cartString = `${cartQuantity} item${cartQuantity === 1 ? '' : 's'}`;
 
         if (linkCart) {
             linkCart.innerHTML = cartString;
+            
         } else {
             console.error('linkCart element not found');
         }
