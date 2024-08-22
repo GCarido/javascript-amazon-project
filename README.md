@@ -43,8 +43,9 @@ By working through this project, I've been able to:
    ```bash
    git clone https://github.com/GCarido/javascript-amazon-project.git
 2. Navigate to the project directory:
+   ```bash
    cd javascript-tutorial-amazon
-3. Open the project in your preferred code editor and explore the code as you follow along with the course.
+4. Open the project in your preferred code editor and explore the code as you follow along with the course.
 
 ### Usage
 This repository is intended to track my progress through SuperSimpleDev's JavaScript course on YouTube. Feel free to explore the code, and if you're following the same course, you might find it useful as a reference.
@@ -53,4 +54,4 @@ This repository is intended to track my progress through SuperSimpleDev's JavaSc
 The tutorial and guidance for this project come from [SuperSimpleDev](https://www.youtube.com/@SuperSimpleDev). Check out their channel for more helpful content that will hone your skills in other stacks like HTML/CSS.
 
 ### License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](License.md) file for details.
