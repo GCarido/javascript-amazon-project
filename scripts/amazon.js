@@ -84,7 +84,6 @@ document.querySelectorAll('.js-add-to-cart').forEach(link => {
     const productId = link.dataset.productId;
     const quantity = parseInt(link.parentElement.querySelector('.quantity-select').value);
     addToCart(productId, quantity);
-
     updateCartQuantity();
   });
 });
