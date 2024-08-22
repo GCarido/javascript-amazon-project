@@ -54,4 +54,4 @@ This repository is intended to track my progress through SuperSimpleDev's JavaSc
 The tutorial and guidance for this project come from [SuperSimpleDev](https://www.youtube.com/@SuperSimpleDev). Check out their channel for more helpful content that will hone your skills in other stacks like HTML/CSS.
 
 ### License
-This project is licensed under the MIT License - see the [LICENSE](License.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
