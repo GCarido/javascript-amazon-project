@@ -44,7 +44,7 @@ By working through this project, I've been able to:
    git clone https://github.com/GCarido/javascript-amazon-project.git
 2. Navigate to the project directory:
    ```bash
-   cd javascript-tutorial-amazon
+   cd javascript-amazon-project
 4. Open the project in your preferred code editor and explore the code as you follow along with the course.
 
 ### Usage
